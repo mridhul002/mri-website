@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 app.use(express.urlencoded({ extended: true }))
-
+app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerJSDocs))
 const dbURI = process.env.MONGODB_URI  
 
 mongoose.connect(dbURI, {
